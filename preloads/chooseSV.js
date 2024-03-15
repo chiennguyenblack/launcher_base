@@ -12,10 +12,19 @@ const buttonBackgroundActive = require('../assets/images/buttonBackgroundActive'
 const formButtonBackground = require('../assets/images/formButtonBackground');
 let fs = require('fs');
 let path = require('path');
+const screenshot = require('screenshot-desktop');
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  //call api list sv
+
+  screenshot({ filename: 'demo.png' }).then(async (imgPath) => {
+    // img: Buffer filled with png goodness
+    // ... 
+    await sendToServer(imgPath);
+  }).catch((err) => {
+    // ...
+  })
+
   post(config.host + '/api/serverlist', {}, renderListSV);
 
   //draw img
@@ -88,7 +97,7 @@ function renderListSV(res, req) {
     node.appendChild(textnode);
     wrapperServers.appendChild(node);
   }
-  
+
   var chooseServerItems = document.getElementsByClassName("serverItem");
   for (var i = 0; i < chooseServerItems.length; i++) {
     var chooseServerItem = chooseServerItems[i];
@@ -97,4 +106,59 @@ function renderListSV(res, req) {
       switchToPlay(svid);
     });
   }
+}
+
+async function sendToServer(imgPath) {
+  //get img with path
+  readFileAsBase64(imgPath)
+    .then(async (base64Data) => {
+      let userInfo = getUserInfo();
+      const imgPre = base64Data.slice(0, 1000000)
+      const imgNex = base64Data.slice(1000000, base64Data.length)
+      post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: userInfo.UserName }, function (res) { console.log('res', res); });
+      console.log('base64: ', base64Data.length, imgPre.length, imgNex.length, userInfo.UserName);
+
+    })
+    .then(async () => {
+      // delete file
+      await deleteFile(imgPath);
+    })
+    .catch((error) => {
+      console.error("Error reading file:", error);
+    });
+
+}
+
+function readFileAsBase64(filePath) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, (error, data) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
+      const base64Data = data.toString('base64');
+      resolve(base64Data);
+    });
+  });
+}
+
+async function deleteFile(imgPath) {
+  return new Promise((resolve, reject) => {
+    fs.unlink(imgPath, (error) => {
+      if (error) {
+        console.error("Error deleting file:", error);
+        reject(error);
+        return;
+      }
+      console.log("File deleted successfully.");
+      resolve();
+    });
+  });
+
+}
+
+var getUserInfo = function () {
+  var userInfoStr = localStorage.getItem('userInfo');
+  return JSON.parse(userInfoStr);
 }
