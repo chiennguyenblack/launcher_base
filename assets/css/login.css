@@ -361,6 +361,10 @@ td {
     max-height: 280px;
 }
 
+.wrapperServer::-webkit-scrollbar {
+    display: none;
+}
+
 .chooseTitle .button {
     background-color: rgba(90, 67, 236, .7);
     transition: all 300ms;

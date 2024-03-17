@@ -586,6 +586,27 @@ function createLoginWindow () {
   return window;
 }
 
+function createChooseSVWindow () {
+  // Create the browser window.
+  const window = new BrowserWindow({
+    width: 1085,
+    height: 686,
+    autoHideMenuBar: true,
+    transparent: true,
+    frame: false,
+    resizable: false,
+    webPreferences: {
+      preload: path.join(__dirname, 'preloads/chooseSV.js'),
+      enableRemoteModule: true
+    }
+  });
+  window.loadFile('windows/chooseServer.html')
+  // Open the DevTools.
+  // window.webContents.openDevTools()
+  windowIndexes['choose'] = window;
+  return window;
+}
+
 function loadingWindow() {
   const window = new BrowserWindow({
     width: 840,
@@ -631,35 +652,6 @@ function createPlayWindow () {
   // }
   // window.webContents.setAudioMuted(true)
   windowIndexes['play'] = window;
-  return window;
-}
-
-function createChooseSVWindow () {
-  // Create the browser window.
-  const window = new BrowserWindow({
-    width: 1006,
-    height: 676,
-    autoHideMenuBar: true,
-    transparent: true,
-    frame: false,
-    resizable: false,
-    maximizable: false,
-    webPreferences: {
-      preload: path.join(__dirname, 'preloads/chooseSV.js'),
-      nodeIntegration: true,
-      webviewTag: true,
-      plugins: true,
-      contextIsolation: false,
-      enableRemoteModule: true
-    }
-  });
-  window.loadFile('windows/chooseServer.html')
-
-  // Open the DevTools.
-  // if (config.debug) {
-    window.webContents.openDevTools()
-  // }
-  windowIndexes['login'] = window;
   return window;
 }
 

