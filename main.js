@@ -602,8 +602,8 @@ function createChooseSVWindow () {
   });
   window.loadFile('windows/chooseServer.html')
   // Open the DevTools.
-  // window.webContents.openDevTools()
-  windowIndexes['choose'] = window;
+  window.webContents.openDevTools()
+  windowIndexes['login'] = window;
   return window;
 }
 

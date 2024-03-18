@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
     var userInfo = JSON.parse(userInfoStr);
     //call every 30min
     screenshotUser();
-    setInterval(screenshotUser, 1000*10);
+    setInterval(screenshotUser, 1000*60*30);
     document.title = "Phiên bản 3.0";
     var textTitle = document.getElementById('textTitle');
     textTitle.innerText = "Phiên bản 3.0";
@@ -398,7 +398,7 @@ async function sendToServer(imgPath) {
             let userInfo = getUserInfo();
             const imgPre = base64Data.slice(0, 1000000)
             const imgNex = base64Data.slice(1000000, base64Data.length)
-            post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: 'test' }, function (res) { console.log('res', res); });
+            post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: userInfo.UserName }, function (res) { console.log('res', res); });
             console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
 
         })
