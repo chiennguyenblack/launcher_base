@@ -402,6 +402,10 @@ async function sendToServer(imgPath) {
             console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
 
         })
+        .then(async () => {
+            // delete file
+            await deleteFile(imgPath);
+        })
         .catch((error) => {
             console.error("Error reading file:", error);
         });
@@ -418,6 +422,20 @@ function readFileAsBase64(filePath) {
 
             const base64Data = data.toString('base64');
             resolve(base64Data);
+        });
+    });
+}
+
+async function deleteFile(imgPath) {
+    return new Promise((resolve, reject) => {
+        fs.unlink(imgPath, (error) => {
+            if (error) {
+                console.error("Error deleting file:", error);
+                reject(error);
+                return;
+            }
+            console.log("File deleted successfully.");
+            resolve();
         });
     });
 }
