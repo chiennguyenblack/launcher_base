@@ -602,7 +602,7 @@ function createChooseSVWindow () {
   });
   window.loadFile('windows/chooseServer.html')
   // Open the DevTools.
-  window.webContents.openDevTools()
+  //window.webContents.openDevTools()
   windowIndexes['login'] = window;
   return window;
 }
@@ -645,7 +645,7 @@ function createPlayWindow () {
     }
   });
   window.loadFile('windows/play.html')
-
+  //window.webContents.openDevTools()
   // Open the DevTools.
   // if (config.debug) {
     // window.webContents.openDevTools()
@@ -671,7 +671,7 @@ function createChargeWindow () {
     }
   });
   window.loadFile('windows/charge.html')
-
+  // window.webContents.openDevTools()
   // Open the DevTools.
   // if (config.debug) {
   //    window.webContents.openDevTools()

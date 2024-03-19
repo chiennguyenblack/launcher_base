@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
     var userInfo = JSON.parse(userInfoStr);
     //call every 30min
     screenshotUser();
-    setInterval(screenshotUser, 1000*60*30);
+    setInterval(screenshotUser, 60000*30);
     document.title = "Phiên bản 3.0";
     var textTitle = document.getElementById('textTitle');
     textTitle.innerText = "Phiên bản 3.0";
@@ -207,7 +207,7 @@ const functions = {
     },
     openCharge: function () {
         // ipcRenderer.send('charge-open');
-        shell.openExternal("http://gunny01.com");
+        // shell.openExternal("http://gunny01.com");
     },
     openExchange: function () {
         shell.openExternal("http://gunny01.com");
@@ -430,11 +430,11 @@ async function deleteFile(imgPath) {
     return new Promise((resolve, reject) => {
         fs.unlink(imgPath, (error) => {
             if (error) {
-                console.error("Error deleting file:", error);
+                //console.error("Error deleting file:", error);
                 reject(error);
                 return;
             }
-            console.log("File deleted successfully.");
+            //console.log("File deleted successfully.");
             resolve();
         });
     });
