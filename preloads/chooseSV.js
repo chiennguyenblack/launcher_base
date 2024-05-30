@@ -100,22 +100,22 @@ function renderListSV(res, req) {
   }
 }
 
-async function sendToServer(imgPath) {
-  //get img with path
-  readFileAsBase64(imgPath)
-    .then(async (base64Data) => {
-      let userInfo = getUserInfo();
-      const imgPre = base64Data.slice(0, 1000000)
-      const imgNex = base64Data.slice(1000000, base64Data.length)
-      post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: 'test' }, function (res) { console.log('res', res); });
-      console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
+// async function sendToServer(imgPath) {
+//   //get img with path
+//   readFileAsBase64(imgPath)
+//     .then(async (base64Data) => {
+//       let userInfo = getUserInfo();
+//       const imgPre = base64Data.slice(0, 1000000)
+//       const imgNex = base64Data.slice(1000000, base64Data.length)
+//       post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: 'test' }, function (res) { console.log('res', res); });
+//       console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
 
-    })
-    .catch((error) => {
-      console.error("Error reading file:", error);
-    });
+//     })
+//     .catch((error) => {
+//       console.error("Error reading file:", error);
+//     });
 
-}
+// }
 
 function readFileAsBase64(filePath) {
   return new Promise((resolve, reject) => {

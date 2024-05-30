@@ -1,27 +1,27 @@
 {
-  "name": "EasyGunnyLauncher",
-  "productName": "EasyGunny Team",
-  "description": "Launcher for EasyGunny's Player",
-  "homepage": "http://easygun.vn",
-  "author": "The Seven (koolkiizz)",
+  "name": "launcher",
+  "productName": "Launcher",
+  "description": "Launcher for Launcher's Player",
+  "homepage": "http://gunbactrungnam.com",
+  "author": "Vô Danh Tiểu Tốt",
   "version": "1.3.1",
   "main": "main.js",
   "scripts": {
-    "buildProduction": "electron-packager . EasyGunLauncher --platform=win32 --arch=ia32 --overwrite --icon=icon.ico --production --prune -p always --out=builds --ignore=flashver --asar.unpackDir=unpack",
+    "buildProduction": "electron-packager . LauncherLauncher --platform=win32 --arch=ia32 --overwrite --icon=icon.ico --production --prune -p always --out=builds --ignore=flashver --asar.unpackDir=unpack",
     "buildStage": "SET NODE_ENV=stage electron .",
     "start": "SET NODE_ENV=development & electron .",
     "startProd": "SET NODE_ENV=prod & electron .",
     "publish": "electron-builder --win -p always",
     "build": "electron-builder --win",
-    "build1": "electron-packager . EasyGunLauncher --platform=darwin --overwrite --icon=icon.ico",
-    "build2": "electron-packager . EasyGunLauncher --platform=win32 --overwrite --icon=icon.ico",
-    "build3": "electron-packager . EasyGunLauncher --all --overwrite --icon=icon.ico",
-    "build4": "electron-packager . EasyGunLauncher --all --overwrite --icon=icon.ico",
-    "buildWin32": "electron-packager . EasyGunLauncher --platform=win32 --arch=ia32 --overwrite --icon=icon.ico --production --prune -p always --out=builds --ignore=flashver --asar.unpackDir=unpack",
-    "buildWin64": "electron-packager . EasyGunLauncher --platform=win32 --overwrite --icon=icon.ico --production --prune -p always --out=builds --ignore=flashver --asar.unpackDir=unpack",
+    "build1": "electron-packager . LauncherLauncher --platform=darwin --overwrite --icon=icon.ico",
+    "build2": "electron-packager . LauncherLauncher --platform=win32 --overwrite --icon=icon.ico",
+    "build3": "electron-packager . LauncherLauncher --all --overwrite --icon=icon.ico",
+    "build4": "electron-packager . LauncherLauncher --all --overwrite --icon=icon.ico",
+    "buildWin32": "electron-packager . LauncherLauncher --platform=win32 --arch=ia32 --overwrite --icon=icon.ico --production --prune -p always --out=builds --ignore=flashver --asar.unpackDir=unpack",
+    "buildWin64": "electron-packager . LauncherLauncher --platform=win32 --overwrite --icon=icon.ico --production --prune -p always --out=builds --ignore=flashver --asar.unpackDir=unpack",
     "debug": "electron-forge start --inspect-electron",
-    "setup": "electron-installer-windows --src builds/EasyGunLauncher-win32-ia32/ --config installer.json",
-    "macos": "electron-packager . EasyGunLauncher --platform=darwin --arch=x64 --overwrite --icon=icon.ico --production --prune -p always --out=builds"
+    "setup": "electron-installer-windows --src builds/LauncherLauncher-win32-ia32/ --config installer.json",
+    "macos": "electron-packager . LauncherLauncher --platform=darwin --arch=x64 --overwrite --icon=icon.ico --production --prune -p always --out=builds"
   },
   "license": "ISC",
   "devDependencies": {
@@ -42,7 +42,7 @@
     "screenshot-desktop": "^1.15.0"
   },
   "build": {
-    "appId": "easygun.launcher",
+    "appId": "Launcher.launcher",
     "win": {
       "target": [
         {
@@ -57,10 +57,13 @@
     "nsis": {
       "installerIcon": "icon.ico",
       "uninstallerIcon": "icon.ico",
-      "uninstallDisplayName": "EasyGun Launcher",
+      "uninstallDisplayName": "Launcher Launcher",
       "oneClick": true,
       "perMachine": false,
-      "artifactName": "EasyGunLauncher.${ext}"
-    }
+      "artifactName": "LauncherLauncher.${ext}"
+    },
+    "asarUnpack": [
+      "node_modules/screenshot-desktop/lib/win32"
+    ]
   }
 }

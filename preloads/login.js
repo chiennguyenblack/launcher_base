@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
     /**
      * Draw images
      */
-    console.log('log in home');
+    // console.log('log in home');
     var nhanvatImage = new Image(667, 556);
     canvas2 = document.getElementById('nhanvatCanvas');
     context2 = canvas2.getContext('2d');

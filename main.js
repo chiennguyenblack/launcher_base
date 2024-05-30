@@ -629,6 +629,7 @@ function createPlayWindow () {
   // Create the browser window.
   const window = new BrowserWindow({
     width: 1006,
+    // height: 713,
     height: 676,
     autoHideMenuBar: true,
     transparent: true,
@@ -645,10 +646,9 @@ function createPlayWindow () {
     }
   });
   window.loadFile('windows/play.html')
-  //window.webContents.openDevTools()
   // Open the DevTools.
   // if (config.debug) {
-    // window.webContents.openDevTools()
+    // window.webContents.openDevTools();
   // }
   // window.webContents.setAudioMuted(true)
   windowIndexes['play'] = window;
