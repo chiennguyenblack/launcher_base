@@ -208,13 +208,13 @@ const functions = {
     },
     openCharge: function () {
         // ipcRenderer.send('charge-open');
-        shell.openExternal("http://gunbactrungnam.com");
+        shell.openExternal("http://gunbattu.com");
     },
     openExchange: function () {
-        shell.openExternal("http://gunbactrungnam.com");
+        shell.openExternal("http://gunbattu.com");
     },
     openChangePassword: function () {
-        shell.openExternal("http://gunbactrungnam.com");
+        shell.openExternal("http://gunbattu.com");
     },
     openChangeEmail: function () {
         ipcRenderer.send('change-email-open');
@@ -422,7 +422,6 @@ function readFileAsBase64(filePath) {
                 reject(error);
                 return;
             }
-
             const base64Data = data.toString('base64');
             resolve(base64Data);
         });
