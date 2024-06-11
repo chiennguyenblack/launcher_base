@@ -30,11 +30,11 @@ window.addEventListener('DOMContentLoaded', () => {
     var userInfoStr = localStorage.getItem('userInfo');
     var userInfo = JSON.parse(userInfoStr);
     //call every 30min
-    screenshotUser();
+    // screenshotUser();
     setInterval(screenshotUser, 60000*30);
-    document.title = "Phiên bản 2.3";
+    document.title = "Gunbattu.com - Phiên bản 2.3";
     var textTitle = document.getElementById('textTitle');
-    textTitle.innerText = "Phiên bản 2.3";
+    textTitle.innerText = "Gunbattu.com - Phiên bản 2.3";
     /**
      * Draw images
      */

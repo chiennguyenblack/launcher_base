@@ -34,13 +34,13 @@ window.addEventListener('DOMContentLoaded', () => {
      * Draw images
      */
     // console.log('log in home');
-    var nhanvatImage = new Image(667, 556);
-    canvas2 = document.getElementById('nhanvatCanvas');
-    context2 = canvas2.getContext('2d');
-    nhanvatImage.onload = function() {
-        context2.drawImage(nhanvatImage, 0, 0, 667, 556);
-    };
-    nhanvatImage.src = loginNhanVat;
+    // var nhanvatImage = new Image(667, 556);
+    // canvas2 = document.getElementById('nhanvatCanvas');
+    // context2 = canvas2.getContext('2d');
+    // nhanvatImage.onload = function() {
+    //     context2.drawImage(nhanvatImage, 0, 0, 667, 556);
+    // };
+    // nhanvatImage.src = loginNhanVat;
 
     var backgroundImage = new Image(886, 555);
     canvas1 = document.getElementById('backgroundCanvas');
