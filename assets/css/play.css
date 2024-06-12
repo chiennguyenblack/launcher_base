@@ -237,7 +237,7 @@ body {
     font-size: 25px;
     font-family: cursive;
     font-weight: bold;
-    color: #0a047a;
+    color: #ffffff;
     -webkit-app-region: none;
     cursor: pointer;
     user-select: none;
@@ -250,4 +250,5 @@ body {
     font-size: 23px;
     padding: 6px 0;
     box-sizing: border-box;
+    color: #ffffff;
 }

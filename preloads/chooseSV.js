@@ -15,11 +15,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   screenshotUser();
   //draw img
-  var nhanvatImage = new Image(667, 556);
+  var nhanvatImage = new Image(356, 356);
   canvas2 = document.getElementById('nhanvatCanvas');
   context2 = canvas2.getContext('2d');
   nhanvatImage.onload = function () {
-    context2.drawImage(nhanvatImage, 0, 0, 667, 556);
+    context2.drawImage(nhanvatImage, 0, 0, 356, 356);
   };
   nhanvatImage.src = loginNhanVat;
 
@@ -31,20 +31,20 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   backgroundImage.src = loginBackgroundElements;
 
-  var logoBackgroundImage = new Image(510, 101);
-  canvas3 = document.getElementById('logoBackgroundCanvas');
-  context3 = canvas3.getContext('2d');
-  logoBackgroundImage.onload = function () {
-    context3.drawImage(logoBackgroundImage, 0, 0, 510, 101);
-  };
+  // var logoBackgroundImage = new Image(510, 101);
+  // canvas3 = document.getElementById('logoBackgroundCanvas');
+  // context3 = canvas3.getContext('2d');
+  // logoBackgroundImage.onload = function () {
+  //   context3.drawImage(logoBackgroundImage, 0, 0, 510, 101);
+  // };
 
-  var logoImage = new Image(299, 98);
-  canvas4 = document.getElementById('logoCanvas');
-  context4 = canvas4.getContext('2d');
-  logoImage.onload = function () {
-    context4.drawImage(logoImage, 0, 0, 299, 98);
-  };
-  logoImage.src = backgroundLogo;
+  // var logoImage = new Image(299, 98);
+  // canvas4 = document.getElementById('logoCanvas');
+  // context4 = canvas4.getContext('2d');
+  // logoImage.onload = function () {
+  //   context4.drawImage(logoImage, 0, 0, 299, 98);
+  // };
+  // logoImage.src = backgroundLogo;
 
   var closeBtnImage = new Image(19, 21);
   canvas5 = document.getElementById('closeBtnCanvas');

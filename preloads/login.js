@@ -34,11 +34,11 @@ window.addEventListener('DOMContentLoaded', () => {
      * Draw images
      */
     // console.log('log in home');
-    var nhanvatImage = new Image(667, 556);
+    var nhanvatImage = new Image(356, 356);
     canvas2 = document.getElementById('nhanvatCanvas');
     context2 = canvas2.getContext('2d');
     nhanvatImage.onload = function() {
-        context2.drawImage(nhanvatImage, 0, 0, 667, 556);
+        context2.drawImage(nhanvatImage, 0, 0, 356, 356);
     };
     nhanvatImage.src = loginNhanVat;
 
@@ -50,12 +50,12 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     backgroundImage.src = loginBackgroundElements;
 
-    var logoBackgroundImage = new Image(510, 101);
-    canvas3 = document.getElementById('logoBackgroundCanvas');
-    context3 = canvas3.getContext('2d');
-    logoBackgroundImage.onload = function() {
-        context3.drawImage(logoBackgroundImage, 0, 0, 510, 101);
-    };
+    // var logoBackgroundImage = new Image(510, 101);
+    // canvas3 = document.getElementById('logoBackgroundCanvas');
+    // context3 = canvas3.getContext('2d');
+    // logoBackgroundImage.onload = function() {
+    //     context3.drawImage(logoBackgroundImage, 0, 0, 510, 101);
+    // };
 
     var logoImage = new Image(299, 98);
     canvas4 = document.getElementById('logoCanvas');
@@ -157,10 +157,10 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    var updateNowBtn = document.getElementById("updateNow");
-    updateNowBtn.addEventListener('click', function () {
-        ipcRenderer.send('update', 1);
-    });
+    // var updateNowBtn = document.getElementById("updateNow");
+    // updateNowBtn.addEventListener('click', function () {
+    //     ipcRenderer.send('update', 1);
+    // });
     ipcRenderer.send('update', 0);
     var deleteCacheButton = document.getElementById("deleteCache");
     deleteCacheButton.addEventListener('click', function () {

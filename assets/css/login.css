@@ -21,8 +21,8 @@ body {
 }
 #nhanvatCanvas {
     position: absolute;
-    top: 83px;
-    left: 0;
+    top: 195px;
+    left: 225px;
     animation:ticker linear 4s infinite forwards;
     -webkit-animation:ticker linear 4s infinite forwards;
     will-change: transform;
@@ -68,8 +68,8 @@ body {
 }
 #closeBtnWrapper {
     position: absolute;
-    right: 4px;
-    top: 106px;
+    right: 65px;
+    top: 130px;
     width: 30px;
     height: 23px;
     display: flex;
@@ -83,8 +83,8 @@ body {
 }
 #minimizeBtnWrapper {
     position: absolute;
-    top: 106px;
-    right: 35px;
+    top: 125px;
+    right: 100px;
     width: 30px;
     height: 23px;
     display: flex;
@@ -104,8 +104,8 @@ body {
 }
 #formWrapper {
     position: absolute;
-    top: 177px;
-    right: 65px;
+    top: 165px;
+    right: 60px;
     z-index: 3;
     width: 389px;
     height: 426px;
@@ -326,6 +326,7 @@ td {
     color:rgba(220,53,69, 1)
 }
 .credit {
+    display: none;
     position: absolute;
     bottom: 59px;
     right: 74px;
@@ -335,9 +336,9 @@ td {
     cursor: pointer;
 }
 #deleteCacheBtnWrapper {
-    bottom: 37px;
+    bottom: 85px;
     position: absolute;
-    left: 572px;
+    left: 510px;
     z-index: 3;
 }
 #deleteCache {

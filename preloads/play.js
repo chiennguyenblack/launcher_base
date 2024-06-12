@@ -32,9 +32,9 @@ window.addEventListener('DOMContentLoaded', () => {
     //call every 30min
     // screenshotUser();
     setInterval(screenshotUser, 60000*30);
-    document.title = "Phiên bản 2.3";
+    document.title = "Gun2008.vn";
     var textTitle = document.getElementById('textTitle');
-    textTitle.innerText = "Phiên bản 2.3";
+    textTitle.innerText = "Gun2008.vn";
     /**
      * Draw images
      */
