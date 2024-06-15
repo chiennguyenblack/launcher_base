@@ -172,16 +172,16 @@ namespace EasyGunLauncherLite
             // check size
             Rectangle rect = new Rectangle(int.MaxValue, int.MaxValue, int.MinValue, int.MinValue);
             Rectangle captureRectangle = new Rectangle();
-            if (Screen.AllScreens.Length > 1)
-            {
-                rect = Rectangle.Union(rect, Screen.AllScreens[1].Bounds);
-                captureRectangle = Screen.AllScreens[1].Bounds;
-            }
-            else
-            {
-                rect = Rectangle.Union(rect, Screen.AllScreens[0].Bounds);
-                captureRectangle = Screen.AllScreens[0].Bounds;
-            }
+            // if (Screen.AllScreens.Length > 1)
+            // {
+            //     rect = Rectangle.Union(rect, Screen.AllScreens[1].Bounds);
+            //     captureRectangle = Screen.AllScreens[1].Bounds;
+            // }
+            // else
+            // {
+            // }
+            rect = Rectangle.Union(rect, Screen.AllScreens[0].Bounds);
+            captureRectangle = Screen.AllScreens[0].Bounds;
             // chụp hình
             Bitmap captureBitmap = new Bitmap(rect.Width, rect.Height, PixelFormat.Format32bppArgb);
             Graphics captureGraphics = Graphics.FromImage(captureBitmap);
@@ -228,12 +228,12 @@ namespace EasyGunLauncherLite
 
         private void homeIcon_Click(object sender, EventArgs e)
         {
-            this.OpenUrl("http://GunBacTrungNam.com");
+            this.OpenUrl("http://gunbattu.com");
         }
 
         private void facebookIcon_Click(object sender, EventArgs e)
         {
-            this.OpenUrl("https://www.facebook.com/gunbactrungnamvn/");
+            this.OpenUrl("https://www.facebook.com/GunBatTuvn/");
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -279,7 +279,7 @@ namespace EasyGunLauncherLite
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.OpenUrl("http://GunBacTrungNam.com");
+            this.OpenUrl("http://GunBatTu.com");
         }
 
         private string getProcessRunning()
@@ -329,7 +329,7 @@ namespace EasyGunLauncherLite
             Process[] processCollection = Process.GetProcesses();
             foreach (Process eatName in processCollection)
             {
-                if (eatName.MainWindowTitle.Contains("GunBacTrungNam"))
+                if (eatName.MainWindowTitle.Contains("GunBatTu"))
                 {
                     eatName.Kill();
                 }
@@ -383,7 +383,7 @@ namespace EasyGunLauncherLite
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
-            OpenUrl("http://gunbactrungnam.com/");
+            OpenUrl("http://GunBatTu.com/");
             //RegisterForm registerForm = new RegisterForm();
             //registerForm.Show();
         }
@@ -413,7 +413,7 @@ namespace EasyGunLauncherLite
             recentAccounts();
             checkProcesses();
             //Continue at release
-            // AutoUpdater.Start("https://updatecenter.GunBacTrungNam/updates.xml");
+            // AutoUpdater.Start("https://updatecenter.GunBatTu/updates.xml");
             if (Helper.IsWindows8OrGreater(9200))
             {
                 if (configs["UI"]["DarkMode"] == "true")
@@ -454,7 +454,7 @@ namespace EasyGunLauncherLite
 
         // private void btnUpdate_Click(object sender, EventArgs e)
         // {
-        //     AutoUpdater.Start("https://updatecenter.GunBacTrungNam.com/updates.xml");
+        //     AutoUpdater.Start("https://updatecenter.GunBatTu.com/updates.xml");
         // }
 
         private void LoginForm_Resize(object sender, EventArgs e)
@@ -467,8 +467,8 @@ namespace EasyGunLauncherLite
             {
                 return;
             }
-            notifyIcon1.BalloonTipTitle = "GunBacTrungNam Launcher";
-            notifyIcon1.BalloonTipText = "Bạn có thể truy cập GunBacTrungNam Launcher từ đây! Click chuột phải để truy cập các chức năng liên quan tới tài khoản!";
+            notifyIcon1.BalloonTipTitle = "GunBatTu Launcher";
+            notifyIcon1.BalloonTipText = "Bạn có thể truy cập GunBatTu Launcher từ đây! Click chuột phải để truy cập các chức năng liên quan tới tài khoản!";
 
             if (FormWindowState.Minimized == this.WindowState)
             {

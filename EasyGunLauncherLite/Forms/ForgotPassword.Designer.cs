@@ -133,7 +133,7 @@ namespace EasyGunLauncherLite
             //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ForgotPassword";
-            this.Text = "Quên mật khẩu - GunBacTrungNam";
+            this.Text = "Quên mật khẩu - GunBatTu";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

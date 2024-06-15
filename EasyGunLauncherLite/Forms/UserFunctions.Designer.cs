@@ -335,7 +335,7 @@
             this.MaximizeBox = false;
             this.Name = "UserFunctions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Chức năng tài khoản - GunBacTrungNam";
+            this.Text = "Chức năng tài khoản - GunBatTu";
             this.Load += new System.EventHandler(this.UserFunctions_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

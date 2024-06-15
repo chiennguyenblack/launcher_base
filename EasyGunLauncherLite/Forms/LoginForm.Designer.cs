@@ -38,12 +38,10 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.đổiĐườngTruyềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GunBacTrungNamMain1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GunBacTrungNamBackup2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GunBatTuMain1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GunBatTuBackup2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LoginButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.zaloIcon = new System.Windows.Forms.Label();
-            this.facebookIcon = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnFunctions = new System.Windows.Forms.Button();
             this.cbxSystemTray = new System.Windows.Forms.CheckBox();
@@ -138,15 +136,15 @@
             this.đổiĐườngTruyềnToolStripMenuItem.Name = "đổiĐườngTruyềnToolStripMenuItem";
             this.đổiĐườngTruyềnToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             // 
-            // GunBacTrungNamMain1ToolStripMenuItem
+            // GunBatTuMain1ToolStripMenuItem
             // 
-            this.GunBacTrungNamMain1ToolStripMenuItem.Name = "GunBacTrungNamMain1ToolStripMenuItem";
-            this.GunBacTrungNamMain1ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.GunBatTuMain1ToolStripMenuItem.Name = "GunBatTuMain1ToolStripMenuItem";
+            this.GunBatTuMain1ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // GunBacTrungNamBackup2ToolStripMenuItem
+            // GunBatTuBackup2ToolStripMenuItem
             // 
-            this.GunBacTrungNamBackup2ToolStripMenuItem.Name = "GunBacTrungNamBackup2ToolStripMenuItem";
-            this.GunBacTrungNamBackup2ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.GunBatTuBackup2ToolStripMenuItem.Name = "GunBatTuBackup2ToolStripMenuItem";
+            this.GunBatTuBackup2ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // LoginButton
             // 
@@ -168,8 +166,6 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::EasyGunLauncherLite.Properties.Resources.BG;
-            this.panel2.Controls.Add(this.zaloIcon);
-            this.panel2.Controls.Add(this.facebookIcon);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.homeIcon);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -177,26 +173,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(911, 316);
             this.panel2.TabIndex = 8;
-            // 
-            // zaloIcon
-            // 
-            this.zaloIcon.BackColor = System.Drawing.Color.Transparent;
-            this.zaloIcon.Image = global::EasyGunLauncherLite.Properties.Resources.zaloicon;
-            this.zaloIcon.Location = new System.Drawing.Point(95, 2);
-            this.zaloIcon.Name = "zaloIcon";
-            this.zaloIcon.Size = new System.Drawing.Size(40, 40);
-            this.zaloIcon.TabIndex = 14;
-            this.zaloIcon.Click += new System.EventHandler(this.zaloIcon_Click);
-            // 
-            // facebookIcon
-            // 
-            this.facebookIcon.BackColor = System.Drawing.Color.Transparent;
-            this.facebookIcon.Image = global::EasyGunLauncherLite.Properties.Resources.f2;
-            this.facebookIcon.Location = new System.Drawing.Point(49, 1);
-            this.facebookIcon.Name = "facebookIcon";
-            this.facebookIcon.Size = new System.Drawing.Size(40, 40);
-            this.facebookIcon.TabIndex = 12;
-            this.facebookIcon.Click += new System.EventHandler(this.facebookIcon_Click);
             // 
             // panel1
             // 
@@ -309,7 +285,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.45084F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.54916F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
             this.tableLayoutPanel2.Controls.Add(this.btnChangeConnection, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label6, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblForgotPassword, 0, 0);
@@ -325,7 +301,7 @@
             // 
             this.btnChangeConnection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeConnection.Location = new System.Drawing.Point(146, 10);
+            this.btnChangeConnection.Location = new System.Drawing.Point(145, 10);
             this.btnChangeConnection.Margin = new System.Windows.Forms.Padding(0);
             this.btnChangeConnection.Name = "btnChangeConnection";
             this.btnChangeConnection.Size = new System.Drawing.Size(118, 23);
@@ -357,7 +333,7 @@
             this.lblForgotPassword.Location = new System.Drawing.Point(0, 11);
             this.lblForgotPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lblForgotPassword.Name = "lblForgotPassword";
-            this.lblForgotPassword.Size = new System.Drawing.Size(133, 22);
+            this.lblForgotPassword.Size = new System.Drawing.Size(132, 22);
             this.lblForgotPassword.TabIndex = 8;
             this.lblForgotPassword.Text = "Quên mật khẩu?";
             this.lblForgotPassword.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -473,7 +449,7 @@
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GunBacTrungNam Launcher";
+            this.Text = "GunBatTu Launcher";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.Load += new System.EventHandler(this.LoginForm_Load);
@@ -504,7 +480,6 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label facebookIcon;
         private System.Windows.Forms.Label homeIcon;
         private System.Windows.Forms.Button btnClearCache;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -520,7 +495,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxServer;
-        private System.Windows.Forms.Label zaloIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuShowForm;
         private System.Windows.Forms.ToolStripMenuItem mnuUserFunctions;
@@ -530,8 +504,8 @@
         private System.Windows.Forms.Button btnChangeConnection;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem đổiĐườngTruyềnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem GunBacTrungNamMain1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem GunBacTrungNamBackup2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GunBatTuMain1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GunBatTuBackup2ToolStripMenuItem;
     }
 }
 

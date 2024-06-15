@@ -105,7 +105,7 @@ namespace EasyGunLauncherLite
                 {
                     if (process.MainWindowTitle == "Adobe Flash Player 11")
                     {
-                        SetWindowText(process.MainWindowHandle, this.username + " - GunBacTrungNam Launcher");
+                        SetWindowText(process.MainWindowHandle, this.username + " - GunBatTu Launcher");
                         flag = false;
                     }
                 }
@@ -143,7 +143,7 @@ namespace EasyGunLauncherLite
             IntPtr loadLibraryAddr = GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
 
             // name of the dll we want to inject
-            string dllName = Startup.windowsFilePath + "\\GunBacTrungNamHook.dll";
+            string dllName = Startup.windowsFilePath + "\\GunBatTuHook.dll";
 
             // alocating some memory on the target process - enough to store the name of the dll
             // and storing its address in a pointer

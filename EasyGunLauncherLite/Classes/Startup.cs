@@ -19,7 +19,7 @@ namespace EasyGunLauncherLite
     internal class Startup
     {
         public static string USER_APPLICATION_DATA_FOLDER = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        public static string APPLICATION_DATA_FOLDER = "\\GunBacTrungNam\\";
+        public static string APPLICATION_DATA_FOLDER = "\\GunBatTu\\";
 
         public static string windowsFilePath
         {
@@ -239,7 +239,7 @@ namespace EasyGunLauncherLite
             {
                 Directory.CreateDirectory(windowsFilePath);
             }
-            Extract(windowsFilePath, "GunBacTrungNamHook.dll", "EasyGunLauncherLite.Resources.GunBacTrungNamHook.dll", true);
+            Extract(windowsFilePath, "GunBatTuHook.dll", "EasyGunLauncherLite.Resources.GunBatTuHook.dll", true);
         }
 
         public static string checkingForRegion()

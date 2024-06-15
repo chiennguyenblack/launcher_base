@@ -8,7 +8,7 @@
     <ProjectGuid>{1B604E49-F3BE-47D8-85D6-3985DB0EAA65}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>EasyGunLauncherLite</RootNamespace>
-    <AssemblyName>GunBacTrungNam</AssemblyName>
+    <AssemblyName>GunBatTu</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

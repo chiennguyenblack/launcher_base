@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("EasyGunLauncher")]
-[assembly: AssemblyCopyright("Copyright ©  2024 GunBacTrungNam Team")]
+[assembly: AssemblyCopyright("Copyright ©  2024 GunBatTu Team")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
