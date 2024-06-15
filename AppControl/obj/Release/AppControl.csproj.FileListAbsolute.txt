@@ -1,0 +1,6 @@
+F:\Gunny\easygun\EasyGunLauncherLite\AppControl\bin\Release\AppControl.dll
+F:\Gunny\easygun\EasyGunLauncherLite\AppControl\obj\Release\AppControl.csproj.AssemblyReference.cache
+F:\Gunny\easygun\EasyGunLauncherLite\AppControl\obj\Release\AppControl.ApplicationControl.resources
+F:\Gunny\easygun\EasyGunLauncherLite\AppControl\obj\Release\AppControl.csproj.GenerateResource.cache
+F:\Gunny\easygun\EasyGunLauncherLite\AppControl\obj\Release\AppControl.csproj.CoreCompileInputs.cache
+F:\Gunny\easygun\EasyGunLauncherLite\AppControl\obj\Release\AppControl.dll

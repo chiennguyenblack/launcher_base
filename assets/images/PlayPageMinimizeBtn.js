@@ -1,2 +1,0 @@
-const PlayPageMinimizeBtn = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAHCAYAAAAWAl2LAAAAI0lEQVQokWPkYKpMY2BgmMlAW7CHicYWwMGoRaMWQQADAwMAMx0CTOoYfy8AAAAASUVORK5CYII=";
-module.exports = PlayPageMinimizeBtn;

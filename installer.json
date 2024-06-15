@@ -1,8 +1,0 @@
-{
-  "dest": "../installers/",
-  "icon": "icon.ico",
-  "options": {
-    "exe": "LauncherLauncher.exe",
-    "noMsi": true
-  }
-}

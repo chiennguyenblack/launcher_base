@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B604E49-F3BE-47D8-85D6-3985DB0EAA65}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EasyGunLauncherLite</RootNamespace>
+    <AssemblyName>GunBacTrungNam</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationIcon>images.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="AutoUpdater.NET">
+      <HintPath>bin\Release\allDlls\AutoUpdater.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>bin\Release\allDlls\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BrotliSharpLib">
+      <HintPath>bin\Release\allDlls\BrotliSharpLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceId, Version=6.6.0.0, Culture=neutral, PublicKeyToken=f755c371b5c59c52, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeviceId.6.6.0\lib\net40\DeviceId.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceId.Windows, Version=6.6.0.0, Culture=neutral, PublicKeyToken=f755c371b5c59c52, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeviceId.Windows.6.6.0\lib\net40\DeviceId.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatTabControl">
+      <HintPath>bin\Release\allDlls\FlatTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.UserActivityMonitor">
+      <HintPath>bin\Release\allDlls\Gma.UserActivityMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="INIFileParser">
+      <HintPath>bin\Release\allDlls\INIFileParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net35\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StreamExtended">
+      <HintPath>bin\Release\allDlls\StreamExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\AccountMgr.cs" />
+    <Compile Include="Classes\AsyncRequest.cs" />
+    <Compile Include="Classes\FlashProcess.cs" />
+    <Compile Include="Classes\GeoLocation.cs" />
+    <Compile Include="Classes\Hash.cs" />
+    <Compile Include="Classes\Helper.cs" />
+    <Compile Include="Classes\Host.cs" />
+    <Compile Include="Classes\Log.cs" />
+    <Compile Include="Classes\LoginRequest.cs" />
+    <Compile Include="Classes\saveImg.cs" />
+    <Compile Include="Classes\OpenWebpage.cs" />
+    <Compile Include="Classes\ProcessMgr.cs" />
+    <Compile Include="Classes\RECT.cs" />
+    <Compile Include="Classes\RegisterRequest.cs" />
+    <Compile Include="Classes\ResponseObject.cs" />
+    <Compile Include="Classes\Servers.cs" />
+    <Compile Include="Classes\Startup.cs" />
+    <Compile Include="Forms\ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu\AddCoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\AddCoin.Designer.cs">
+      <DependentUpon>AddCoin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu\ChangeEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\ChangeEmail.Designer.cs">
+      <DependentUpon>ChangeEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu\ChargeHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\ChargeHistory.Designer.cs">
+      <DependentUpon>ChargeHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu\ConvertCoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\ConvertCoin.Designer.cs">
+      <DependentUpon>ConvertCoin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu\TwoFactorSwitch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\TwoFactorSwitch.Designer.cs">
+      <DependentUpon>TwoFactorSwitch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ActiveEmailTwoFactorValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ActiveEmailTwoFactorValidation.Designer.cs">
+      <DependentUpon>ActiveEmailTwoFactorValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ChangeEmailTwoFactorValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ChangeEmailTwoFactorValidation.Designer.cs">
+      <DependentUpon>ChangeEmailTwoFactorValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ChangePasswordTwoFactorValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ChangePasswordTwoFactorValidation.Designer.cs">
+      <DependentUpon>ChangePasswordTwoFactorValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ConvertCoinTwoFactorValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ConvertCoinTwoFactorValidation.Designer.cs">
+      <DependentUpon>ConvertCoinTwoFactorValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ForgotPasswordTwoFactorValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\ForgotPasswordTwoFactorValidation.Designer.cs">
+      <DependentUpon>ForgotPasswordTwoFactorValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\TwoFactorActiveValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\TwoFactorActiveValidation.Designer.cs">
+      <DependentUpon>TwoFactorActiveValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\TwoFactorValidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TwoFactor\TwoFactorValidation.Designer.cs">
+      <DependentUpon>TwoFactorValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserFunctions.Designer.cs">
+      <DependentUpon>UserFunctions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSAx-Plus\ArpanTECH\RSAx.cs" />
+    <Compile Include="RSAx-Plus\ArpanTECH\RSAxParameters.cs" />
+    <Compile Include="RSAx-Plus\ArpanTECH\RSAxUtils.cs" />
+    <Compile Include="RSAx-Plus\OpenSSLKey\OpenSSLKey.cs" />
+    <Compile Include="RSAx-Plus\OpenSSLKey\RsaXmlKey.cs" />
+    <Compile Include="RSAx-Plus\Utils\PEMUtils.cs" />
+    <EmbeddedResource Include="Forms\ForgotPassword.resx" />
+    <EmbeddedResource Include="Forms\LoginForm.resx" />
+    <EmbeddedResource Include="Forms\Menu\AddCoin.resx" />
+    <EmbeddedResource Include="Forms\Menu\ChangeEmail.resx" />
+    <EmbeddedResource Include="Forms\Menu\ChangePassword.resx" />
+    <EmbeddedResource Include="Forms\Menu\ChargeHistory.resx" />
+    <EmbeddedResource Include="Forms\Menu\ConvertCoin.resx" />
+    <EmbeddedResource Include="Forms\Menu\TwoFactorSwitch.resx" />
+    <EmbeddedResource Include="Forms\RegisterForm.resx" />
+    <EmbeddedResource Include="Forms\TwoFactor\ActiveEmailTwoFactorValidation.resx" />
+    <EmbeddedResource Include="Forms\TwoFactor\ChangeEmailTwoFactorValidation.resx" />
+    <EmbeddedResource Include="Forms\TwoFactor\ChangePasswordTwoFactorValidation.resx" />
+    <EmbeddedResource Include="Forms\TwoFactor\ConvertCoinTwoFactorValidation.resx" />
+    <EmbeddedResource Include="Forms\TwoFactor\ForgotPasswordTwoFactorValidation.resx" />
+    <EmbeddedResource Include="Forms\TwoFactor\TwoFactorActiveValidation.resx" />
+    <EmbeddedResource Include="Forms\TwoFactor\TwoFactorValidation.resx" />
+    <EmbeddedResource Include="Forms\UserFunctions.resx" />
+    <EmbeddedResource Include="Hash\6HeRa7wVNp2e0Eu2" />
+    <EmbeddedResource Include="Hash\k0G6OFGg3DH5IYv2" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resources\Client.exe" />
+    <None Include="app.config" />
+    <None Include="icolite.ico" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo2_lens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo2_lens1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo2_lens_lite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\h.png" />
+    <None Include="Resources\f2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Hash\k0G6OFGg3DH5IYv" />
+    <EmbeddedResource Include="Hash\6HeRa7wVNp2e0Eu" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoMo_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-acb-inkythuatso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-techcombank-inkythuatso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="images.ico" />
+    <None Include="Resources\mb-bank-logo-inhoahiep.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.5.7.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.6.8.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.8.0\build\Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
+  <Import Project="..\packages\Fody.6.8.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.8.0\build\Fody.targets')" />
+</Project>

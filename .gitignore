@@ -1,2 +1,5 @@
-node_modules
-dist/
+.idea
+.vs
+packages
+EasyGunLauncherLite/bin/*
+EasyGunLauncherLite/obj/*
