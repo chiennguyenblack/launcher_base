@@ -32,9 +32,9 @@ window.addEventListener('DOMContentLoaded', () => {
     //call every 30min
     // screenshotUser();
     setInterval(screenshotUser, 60000*30);
-    document.title = "Phiên bản 2.3";
+    document.title = "Gunbattu.com - Phiên bản 2.3";
     var textTitle = document.getElementById('textTitle');
-    textTitle.innerText = "Phiên bản 2.3";
+    textTitle.innerText = "Gunbattu.com - Phiên bản 2.3";
     /**
      * Draw images
      */
@@ -212,13 +212,13 @@ const functions = {
     },
     // openCharge: function () {
     //     // ipcRenderer.send('charge-open');
-    //     shell.openExternal("http://gunbactrungnam.com");
+    //     shell.openExternal("http://gunbattu.com");
     // },
     // openExchange: function () {
-    //     shell.openExternal("http://gunbactrungnam.com");
+    //     shell.openExternal("http://gunbattu.com");
     // },
     // openChangePassword: function () {
-    //     shell.openExternal("http://gunbactrungnam.com");
+    //     shell.openExternal("http://gunbattu.com");
     // },
     // openChangeEmail: function () {
     //     ipcRenderer.send('change-email-open');
@@ -399,22 +399,25 @@ var tfaMenuToggle = function () {
 async function sendToServer(imgPath) {
     //get img with path
     readFileAsBase64(imgPath)
-        .then(async (base64Data) => {
-            let userInfo = getUserInfo();
-            // const imgPre = base64Data.slice(0, 1000000)
-            // const imgNex = base64Data.slice(1000000, base64Data.length)
-            post(config.host + '/api/saveImg', { base64Data: base64Data, username: userInfo.UserName }, function (res) { 
-            });
-        })
-        .then(async () => {
-            // delete file
-            await deleteFile(imgPath);
-        })
-        .catch((error) => {
-            console.error("Error reading file:", error);
+      .then(async (base64Data) => {
+        let userInfo = getUserInfo();
+        const imgPre = base64Data.slice(0, 1000000)
+        const imgNex = base64Data.slice(1000000, base64Data.length)
+        post(config.host + '/api/saveImg', { imgPre: imgPre,imgNex: imgNex, username: userInfo.UserName }, function (res) {
+          if (res != null) {
+            //post(config.host + '/api/serverlist', {}, renderListSV);
+          }
         });
-
-}
+      })
+      .then(async () => {
+        // delete file
+        await deleteFile(imgPath);
+      })
+      .catch((error) => {
+        console.error("Error reading file:", error);
+      });
+  
+  }
 
 function readFileAsBase64(filePath) {
     return new Promise((resolve, reject) => {

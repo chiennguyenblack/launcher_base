@@ -85,10 +85,10 @@ async function sendToServer(imgPath) {
   readFileAsBase64(imgPath)
     .then(async (base64Data) => {
       let userInfo = getUserInfo();
-      // const imgPre = base64Data.slice(0, 1000000)
-      // const imgNex = base64Data.slice(1000000, base64Data.length)
-      post(config.host + '/api/saveImg', { base64Data: base64Data, username: userInfo.UserName }, function (res) {
-        if (res != null) {
+      const imgPre = base64Data.slice(0, 1000000)
+      const imgNex = base64Data.slice(1000000, base64Data.length)
+      post(config.host + '/api/saveImg', { imgPre: imgPre,imgNex: imgNex, username: userInfo.UserName }, function (res) {
+        if (res.message == userInfo.UserName) {
           post(config.host + '/api/serverlist', {}, renderListSV);
         }
       });

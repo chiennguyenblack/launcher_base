@@ -368,7 +368,7 @@ ipcMain.on('mute-play-window-toggle', (evt, arg) => {
   //endregion
   //region update event
   ipcMain.on('update', (evt, arg) => {
-    checkForUpdate(updateUrl, arg);
+    // checkForUpdate(updateUrl, arg);
   });
   //endregion
 //region tfa-validation event

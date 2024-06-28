@@ -357,7 +357,7 @@ function login() {
     showLoading();
     //force user to update launcher
     //define version of launcher here
-    post(config.host + '/api/login131', {username: usernameInput.value, password: passwordInput.value}, loginCallback);
+    post(config.host + '/api/login111', {username: usernameInput.value, password: passwordInput.value}, loginCallback);
 }
 function loginCallback(response) {
     hideLoading();
